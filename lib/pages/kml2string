@@ -1,0 +1,99 @@
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class KmlScreen extends StatefulWidget {
+  @override
+  _KmlScreenState createState() => _KmlScreenState();
+}
+
+class _KmlScreenState extends State<KmlScreen> {
+  Completer<GoogleMapController> _controller = Completer();
+  Set<Marker> _markers = {};
+  Set<Polyline> _polylines = {};
+
+  Future<void> _addKmlToMap() async {
+    // Get the contents of the KML file from the assets directory
+    final String kmlString = await rootBundle.loadString('assets/cable.kml');
+
+    // Create a KML Document from the KML string
+    final Document kmlDocument = KmlDocument.parse(kmlString);
+
+    // Get the Placemarks from the KML Document
+    final List<Placemark> placemarks = kmlDocument.allPlacemarks;
+
+    // Add a Marker for each Placemark in the KML Document
+    for (Placemark placemark in placemarks) {
+      final LatLng latLng =
+          LatLng(placemark.point.latitude, placemark.point.longitude);
+
+      _markers.add(
+        Marker(
+          markerId: MarkerId(placemark.name ?? ''),
+          position: latLng,
+          infoWindow: InfoWindow(
+            title: placemark.name ?? '',
+            snippet: placemark.description ?? '',
+          ),
+        ),
+      );
+    }
+
+    // Get the LineStrings from the KML Document
+    final List<LineString> lineStrings = kmlDocument.allLineStrings;
+
+    // Add a Polyline for each LineString in the KML Document
+    for (LineString lineString in lineStrings) {
+      final List<LatLng> latLngList = lineString
+          .pointList()
+          .map((Point point) => LatLng(point.latitude, point.longitude))
+          .toList();
+
+      _polylines.add(
+        Polyline(
+          polylineId: PolylineId(lineString.name ?? ''),
+          points: latLngList,
+          color: Colors.blue,
+          width: 4,
+        ),
+      );
+    }
+
+    // Move the camera to the first Marker in the Set
+    if (_markers.isNotEmpty) {
+      final GoogleMapController controller = await _controller.future;
+      controller.animateCamera(CameraUpdate.newLatLngZoom(
+          _markers.first.position, 13.0));
+    }
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _addKmlToMap();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('KML on Google Maps'),
+      ),
+      body: GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(43.3701082062863, 5.78405332217242),
+          zoom: 12,
+        ),
+        markers: _markers,
+        polylines: _polylines,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
+      ),
+    );
+  }
+}

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\T460\AndroidStudioProjects\test_google_maps\build\windows\CMakeFiles\5ef9925cd6c586a997978fe6682c05e4\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\T460\AndroidStudioProjects\test_google_maps\build\windows\CMakeFiles\618a7d44b8a501648b6d601f03197b79\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\T460\AndroidStudioProjects\test_google_maps\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\T460\AndroidStudioProjects\test_google_maps\build\windows\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D01EFC35-7BC5-3605-ABCB-2F990E120111}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

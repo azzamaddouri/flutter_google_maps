@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\T460\AndroidStudioProjects\test_google_maps\build\windows\CMakeFiles\618a7d44b8a501648b6d601f03197b79\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D01EFC35-7BC5-3605-ABCB-2F990E120111}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
