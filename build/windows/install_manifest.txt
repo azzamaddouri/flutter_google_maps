@@ -1,6 +1,7 @@
 C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/data/icudtl.dat
 C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/flutter_windows.dll
 C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/data/flutter_assets/assets/cable.kml
 C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
 C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
 C:/Users/T460/AndroidStudioProjects/test_google_maps/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin

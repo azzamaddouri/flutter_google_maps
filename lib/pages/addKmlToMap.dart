@@ -26,8 +26,8 @@ class _TestState extends State<Test> {
           placemark.findAllElements("coordinates").first.text.split(" ");
       for (var coordinate in coordinates) {
         final point = coordinate.toString().split(",");
-        double latitude = double.parse(point[0].toString());
-        double longitude = double.parse(point[1].toString());
+        double latitude = double.parse(point[1].toString());
+        double longitude = double.parse(point[0].toString());
         points.add(LatLng(latitude, longitude));
       }
     }
